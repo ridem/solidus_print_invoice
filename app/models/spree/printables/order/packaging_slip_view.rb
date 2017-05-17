@@ -1,10 +1,7 @@
 module Spree
   class Printables::Order::PackagingSlipView < Printables::Order::InvoiceView
-    def number
-      printable.number
-    end
+    delegate :number, to: :printable
 
-    def after_save_actions
-    end
+    def after_save_actions; end
   end
 end

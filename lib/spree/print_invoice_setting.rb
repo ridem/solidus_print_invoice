@@ -4,7 +4,7 @@ module Spree
     preference :logo_path,        :string,  default: Spree::Config[:admin_interface_logo]
     preference :page_size,        :string,  default: 'LETTER'
     preference :page_layout,      :string,  default: 'landscape'
-    preference :margin,           :array,   default: [15,90]
+    preference :margin,           :array,   default: [15, 90]
     preference :footer_left,      :string,  default: ''
     preference :footer_right,     :string,  default: ''
     preference :return_message,   :text,    default: ''

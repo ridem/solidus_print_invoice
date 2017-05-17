@@ -1,11 +1,10 @@
 <% if can? :show, Spree::Order %>
   <% if @order && @order.completed_at? %>
-      <li class='<%= "#{'active' if current == :documents}" %>'>
+      <li <%== ' class="active"' if (defined? current and current == 'Comments') %>>
         <%=
-          link_to_with_icon 'file',
+          link_to_with_icon 'file-text',
             Spree.t(:documents, scope: :print_invoice),
-            spree.admin_order_bookkeeping_documents_path(@order),
-            title: title
+            spree.admin_order_bookkeeping_documents_path(@order)
         %>
       </li>
   <% end %>

@@ -1,7 +1,20 @@
 ---
 en:
   spree:
+    admin:
+      tab:
+        bookkeeping_documents: Documents
+        invoices: Invoices
+        packaging_slips: Packaging Slips
+    printable_number: Printable Number
     print_invoice:
+      date: Date
+      document_type: Document Type
+      number: Number
+      firstname: First name
+      lastname: Last name
+      email: Email
+      total: Total
       documents: Documents
       documents_for_order: "Documents for order %{order_number}"
       buttons:

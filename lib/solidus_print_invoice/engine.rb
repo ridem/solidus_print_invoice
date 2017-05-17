@@ -6,8 +6,18 @@ module SolidusPrintInvoice
 
     config.autoload_paths += %W(#{config.root}/lib)
 
-    initializer 'spree.print_invoice.environment', before: :load_config_initializers do
+    initializer 'spree.print_invoice.environment', before: :load_config_initializers, after: 'spree.backend.environment' do
       Spree::PrintInvoice::Config = Spree::PrintInvoiceSetting.new
+      Spree::Backend::Config.configure do |config|
+        config.menu_items.push(
+          config.class::MenuItem.new(
+            [:bookkeeping_documents],
+            'file-text',
+            partial: 'spree/admin/shared/documents_sub_menu',
+            condition: -> { can?(:show, Spree::Order) },
+          )
+        )
+      end
     end
 
     class << self

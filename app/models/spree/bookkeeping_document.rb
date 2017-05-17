@@ -6,7 +6,7 @@ module Spree
       :email,
       :total,
       :number
-    ]
+    ].freeze
 
     # Spree::BookkeepingDocument cares about creating PDFs. Whenever it needs to know
     # anything about the document to send to the view, it asks a view object.
@@ -16,7 +16,7 @@ module Spree
     #
     belongs_to :printable, polymorphic: true
     validates :printable, :template, presence: true
-    validates *PERSISTED_ATTRS, presence: true, if: -> { self.persisted? }
+    validates *PERSISTED_ATTRS, presence: true, if: -> { persisted? }
     scope :invoices, -> { where(template: 'invoice') }
 
     before_create :copy_view_attributes
@@ -76,7 +76,7 @@ module Spree
     # = PDF file path
     #
     def file_path
-      @_file_path ||= Rails.root.join(storage_path, "#{file_name}")
+      @_file_path ||= Rails.root.join(storage_path, file_name.to_s)
     end
 
     # = PDF storage folder path for given template name

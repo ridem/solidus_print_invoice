@@ -50,7 +50,9 @@ Enjoy! Now you can generate invoices and packaging slips with sequential numbers
 5. Set page/document options with:
 
   ```ruby
-  Spree::PrintInvoice::Config.set(prawn_options: { page_layout: :landscape, page_size: 'A4', margin: [50, 100, 150, 200] })
+  Spree::PrintInvoice::Config.set(page_layout: 'portrait') # Default: 'landscape'
+  Spree::PrintInvoice::Config.set(page_size: 'A4') # Default: 'LETTER'
+  Spree::PrintInvoice::Config.set(margin: [50, 100, 150, 200]) # Default: [15, 90]
   ```
 
 6. Enable PDF storage feature
