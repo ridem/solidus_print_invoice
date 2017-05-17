@@ -13,9 +13,9 @@ class CreateSpreeBookkeepingDocuments < ActiveRecord::Migration
     end
 
     Spree::Order.complete.where.not(invoice_number: nil).find_each do |order|
-      order.pdfs.create(
+      order.bookkeeping_documents.create(
         template: 'invoice',
-        number: order.invoice_number,
+        number: order['invoice_number'],
         created_at: order.completed_at.to_date
       )
     end
