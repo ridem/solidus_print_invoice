@@ -2,19 +2,19 @@
 lib = File.expand_path('../lib/', __FILE__)
 $LOAD_PATH.unshift lib unless $LOAD_PATH.include?(lib)
 
-require 'spree_print_invoice/version'
+require 'solidus_print_invoice/version'
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_print_invoice'
-  s.version     = SpreePrintInvoice.version
-  s.summary     = 'Print invoices and slips from Spree Commerce'
+  s.name        = 'solidus_print_invoice'
+  s.version     = SolidusPrintInvoice.version
+  s.summary     = 'Print invoices and slips from Solidus Commerce'
   s.description = s.summary
   s.required_ruby_version = '>= 2.1.0'
 
   s.authors      = ['Spree Commerce', 'Tobias Bohwalli', 'Martin Meyerhoff']
   s.email        = 'gems@spreecommerce.com'
-  s.homepage     = 'https://github.com/spree-contrib/spree_print_invoice'
+  s.homepage     = 'https://github.com/ridem/solidus_print_invoice'
   s.license      = 'BSD-3'
 
   s.files        = `git ls-files`.split("\n")
@@ -23,7 +23,8 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_runtime_dependency 'prawn-rails', '~> 0.1.1'
-  s.add_runtime_dependency 'spree_core', '>= 3.1.0', '< 4.0'
+  s.add_dependency 'solidus', ['>= 1.0', '< 3']
+  s.add_dependency 'deface'
 
   s.add_development_dependency 'capybara', '~> 2.4.4'
   s.add_development_dependency 'poltergeist', '~> 1.5'

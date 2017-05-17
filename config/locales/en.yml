@@ -32,6 +32,7 @@ en:
         footer_right_info: E.g. Your phone and email address.
         page_layout: Page Layout
         page_size: Page Size
+        margin: Page Margins
         print_buttons: Print Buttons
         print_buttons_info: Comma separated list.
         logo_path: Print Invoice Logo Path

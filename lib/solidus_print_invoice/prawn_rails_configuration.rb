@@ -9,6 +9,10 @@ module Spree
         @_page_size ||= Spree::PrintInvoice::Config.page_size
       end
 
+      def margin
+        @_margin ||= Spree::PrintInvoice::Config.margin
+      end
+
       def skip_page_creation
         false
       end
@@ -17,6 +21,7 @@ module Spree
         {
           page_layout: page_layout,
           page_size: page_size,
+          margin: margin,
           skip_page_creation: false
         }
       end
