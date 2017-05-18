@@ -1,6 +1,6 @@
 <% if can? :show, Spree::Order %>
   <% if @order && @order.completed_at? %>
-      <li <%== ' class="active"' if (defined? current and current == 'Comments') %>>
+      <li <%== ' class="active"' if (defined? current and current == 'Documents') %>>
         <%=
           link_to_with_icon 'file-text',
             Spree.t(:documents, scope: :print_invoice),
