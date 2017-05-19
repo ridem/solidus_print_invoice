@@ -14,7 +14,7 @@ module SolidusPrintInvoice
             [:bookkeeping_documents],
             'file-text',
             partial: 'spree/admin/shared/documents_sub_menu',
-            condition: -> { can?(:show, Spree::Order) },
+            condition: -> { can?(:manage, Spree::Order) },
           )
         )
       end
