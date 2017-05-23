@@ -6,7 +6,6 @@ module Spree
       helper_method :order_focused?
 
       def show
-        logger.info 'LOADING'
         respond_with(@bookkeeping_document) do |format|
           format.pdf do
             send_data @bookkeeping_document.pdf, type: 'application/pdf', disposition: 'inline'
@@ -24,10 +23,6 @@ module Spree
       end
 
       private
-
-      def model_class
-        Spree::Order
-      end
 
       def order_focused?
         params[:order_id].present?
